@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
@@ -22,25 +23,51 @@ class Appointment extends StatelessWidget {
       child: Column(
         //First row is for icon/information, next is for both buttons
         children: [
-          Align(
-              alignment: Alignment.topCenter,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(Icons.calendar_today_outlined, size: 50),
+              Container(width: 20),
+              Column(
                 children: [
-                  const Icon(Icons.calendar_today_outlined, size: 50),
-                  Container(width: 20),
-                  Text(
-                    '$date\n$doctor\nReason: $reason\nPatient: $patient\nLocation: $location',
-                    style: const TextStyle(fontSize: 20),
-                  )
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: AutoSizeText(
+                        date,
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                      )),
+                  AutoSizeText(
+                    doctor,
+                    maxLines: 1,
+                    textAlign: TextAlign.left,
+                  ),
+                  AutoSizeText(
+                    reason,
+                    maxLines: 1,
+                    textAlign: TextAlign.left,
+                  ),
+                  AutoSizeText(
+                    patient,
+                    maxLines: 1,
+                    textAlign: TextAlign.left,
+                  ),
+                  AutoSizeText(
+                    location,
+                    maxLines: 1,
+                    textAlign: TextAlign.left,
+                  ),
                 ],
-              )),
+              )
+            ],
+          ),
           Container(height: 20),
           Row(
             children: [
+              Spacer(),
               SizedBox(
-                height: 40,
-                width: 170,
+                height: 30,
+                width: MediaQuery.of(context).size.width * .3,
                 child: ElevatedButton(
                     onPressed: (() => print("")),
                     style: ButtonStyle(
@@ -53,15 +80,16 @@ class Appointment extends StatelessWidget {
                                 color: Color.fromARGB(0, 255, 255, 255))),
                       ),
                     ),
-                    child: const Text(
+                    child: AutoSizeText(
                       "Reschedule",
+                      maxLines: 1,
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
               ),
               const Spacer(),
               SizedBox(
-                height: 40,
-                width: 170,
+                height: 30,
+                width: MediaQuery.of(context).size.width * .3,
                 child: ElevatedButton(
                     onPressed: (() => print("")),
                     style: ButtonStyle(
@@ -78,7 +106,8 @@ class Appointment extends StatelessWidget {
                       "Cancel",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
-              )
+              ),
+              Spacer()
             ],
           )
         ],

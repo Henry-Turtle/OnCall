@@ -1,7 +1,13 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'bottom_popup.dart';
 
 class HomeTopBar extends StatefulWidget {
   var name;
+
+  changeName(newName) {
+    print(name);
+  }
 
   HomeTopBar(this.name);
 
@@ -10,6 +16,35 @@ class HomeTopBar extends StatefulWidget {
 }
 
 class _HomeTopBarState extends State<HomeTopBar> {
+  var selectedName;
+  var patients = [
+    "Henry White",
+    "Niccolo Escobar",
+    "George White",
+    'Scarlett White',
+    'Brother of Niccolo',
+    'Mother of Niccolo',
+    'Molly Moon White',
+    'Niccolo Puppy',
+    'Brandom White',
+    'Tom Cruize'
+  ];
+  var displayPatients;
+
+  sortPatients(names, String name) {
+    var newNames = [...names];
+    newNames.remove(name);
+    newNames.insert(0, name);
+    return newNames;
+  }
+
+  @override
+  void initState() {
+    selectedName = widget.name;
+    displayPatients = sortPatients(patients, selectedName);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,20 +52,45 @@ class _HomeTopBarState extends State<HomeTopBar> {
       height: 60,
       width: double.infinity,
       child: Row(children: [
-        Container(width: 20),
-        Text(widget.name, style: TextStyle(color: Colors.white, fontSize: 25)),
-        IconButton(
-          icon: Icon(Icons.keyboard_arrow_down, color: Colors.white),
-          onPressed: () {
-            if (widget.name == "George White") {
-              setState(() => widget.name = "Henry White");
-            } else {
-              setState(
-                () => widget.name = "George White",
-              );
-            }
-          },
-        ),
+        Container(width: 10),
+        Padding(
+            padding: EdgeInsets.only(bottom: 7.0),
+            child: TextButton(
+                onPressed: (() => showModalBottomSheet(
+                      //enableDrag: false,
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      isScrollControlled: true,
+                      builder: ((context) {
+                        return BottomPopup(displayPatients, 0, ((String name) {
+                          setState(() {
+                            displayPatients = sortPatients(patients, name);
+                            selectedName = name;
+                          });
+                        }));
+                      }),
+                    )),
+                child: Row(children: [
+                  Container(
+                      width: MediaQuery.of(context).size.width * .5,
+                      child: Row(children: [
+                        Align(
+                            alignment: Alignment.bottomLeft,
+                            child: AutoSizeText(selectedName,
+                                maxLines: 1,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                ))),
+                        Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.white,
+                            )),
+                        Spacer()
+                      ]))
+                ]))),
         Spacer(),
         Align(
             alignment: Alignment.topLeft,
@@ -38,7 +98,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                 onPressed: (() => print("")),
                 icon: Icon(Icons.notifications_none,
                     color: Colors.white, size: 40))),
-        Container(width: 30)
+        Container(width: 20)
       ]),
     );
   }
