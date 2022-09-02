@@ -16,6 +16,7 @@ class Appointment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
+      height: MediaQuery.of(context).size.height * .2,
       decoration: BoxDecoration(
           color: MyColors.lightGrey,
           borderRadius: const BorderRadius.all(Radius.circular(7.0)),
@@ -30,33 +31,10 @@ class Appointment extends StatelessWidget {
               Container(width: 20),
               Column(
                 children: [
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: AutoSizeText(
-                        date,
-                        maxLines: 1,
-                        textAlign: TextAlign.left,
-                      )),
                   AutoSizeText(
-                    doctor,
-                    maxLines: 1,
-                    textAlign: TextAlign.left,
-                  ),
-                  AutoSizeText(
-                    reason,
-                    maxLines: 1,
-                    textAlign: TextAlign.left,
-                  ),
-                  AutoSizeText(
-                    patient,
-                    maxLines: 1,
-                    textAlign: TextAlign.left,
-                  ),
-                  AutoSizeText(
-                    location,
-                    maxLines: 1,
-                    textAlign: TextAlign.left,
-                  ),
+                    "$date\n$doctor\n$reason\n$patient\n$location",
+                    minFontSize: 0,
+                  )
                 ],
               )
             ],
@@ -70,19 +48,18 @@ class Appointment extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * .3,
                 child: ElevatedButton(
                     onPressed: (() => print("")),
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(MyColors.blue),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(7.0),
-                            side: const BorderSide(
-                                color: Color.fromARGB(0, 255, 255, 255))),
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.all(5.0),
+                      onPrimary: Colors.white,
+                      primary: MyColors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(7.0),
                       ),
                     ),
                     child: AutoSizeText(
                       "Reschedule",
                       maxLines: 1,
+                      minFontSize: 0,
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
               ),
@@ -92,18 +69,18 @@ class Appointment extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * .3,
                 child: ElevatedButton(
                     onPressed: (() => print("")),
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(MyColors.blue),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(7.0),
-                            side: const BorderSide(
-                                color: Color.fromARGB(0, 255, 255, 255))),
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.all(10.0),
+                      onPrimary: Colors.white,
+                      primary: MyColors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(7.0),
                       ),
                     ),
-                    child: const Text(
+                    child: const AutoSizeText(
                       "Cancel",
+                      maxLines: 1,
+                      minFontSize: 0,
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
               ),

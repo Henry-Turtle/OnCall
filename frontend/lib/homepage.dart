@@ -6,7 +6,6 @@ import 'home_top_bar.dart';
 import 'home_bottom_bar.dart';
 import 'home_buttons.dart';
 import 'appointment.dart';
-import 'family_members.dart';
 
 //TODO: Make OnCall logo its own layer, so other elements can overlap with it
 
@@ -19,7 +18,6 @@ class HomePage extends StatelessWidget {
         title: "OnCall",
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          drawer: FamilyMembers(),
           body: Column(
             children: [
               HomeTopBar("George White"),

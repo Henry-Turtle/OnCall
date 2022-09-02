@@ -48,13 +48,13 @@ class _HomeTopBarState extends State<HomeTopBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF3BB9FF),
+      color: const Color(0xFF3BB9FF),
       height: 60,
       width: double.infinity,
       child: Row(children: [
         Container(width: 10),
         Padding(
-            padding: EdgeInsets.only(bottom: 7.0),
+            padding: const EdgeInsets.only(bottom: 7.0),
             child: TextButton(
                 onPressed: (() => showModalBottomSheet(
                       //enableDrag: false,
@@ -78,25 +78,25 @@ class _HomeTopBarState extends State<HomeTopBar> {
                             alignment: Alignment.bottomLeft,
                             child: AutoSizeText(selectedName,
                                 maxLines: 1,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
                                 ))),
-                        Align(
+                        const Align(
                             alignment: Alignment.bottomLeft,
-                            child: Icon(
+                            child: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.white,
                             )),
-                        Spacer()
+                        const Spacer()
                       ]))
                 ]))),
-        Spacer(),
+        const Spacer(),
         Align(
             alignment: Alignment.topLeft,
             child: IconButton(
                 onPressed: (() => print("")),
-                icon: Icon(Icons.notifications_none,
+                icon: const Icon(Icons.notifications_none,
                     color: Colors.white, size: 40))),
         Container(width: 20)
       ]),

@@ -19,14 +19,12 @@ class HomeButtons extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .1,
               child: ElevatedButton(
                   onPressed: (() => print("")),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(MyColors.blue),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(7.0),
-                          side: BorderSide(
-                              color: Color.fromARGB(0, 255, 255, 255))),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(10.0),
+                    onPrimary: Colors.white,
+                    primary: MyColors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
                     ),
                   ),
                   child: AutoSizeText(
@@ -34,7 +32,8 @@ class HomeButtons extends StatelessWidget {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     wrapWords: false,
-                    style: TextStyle(fontSize: 100),
+                    minFontSize: 0,
+                    style: TextStyle(fontSize: 100, color: Colors.white),
                   ))),
           Container(width: MediaQuery.of(context).size.width * .165),
           Container(
@@ -42,14 +41,12 @@ class HomeButtons extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .1,
               child: ElevatedButton(
                   onPressed: (() => print("")),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(MyColors.blue),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(7.0),
-                          side: BorderSide(
-                              color: Color.fromARGB(0, 255, 255, 255))),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(10.0),
+                    onPrimary: Colors.white,
+                    primary: MyColors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
                     ),
                   ),
                   child: AutoSizeText(
@@ -57,7 +54,8 @@ class HomeButtons extends StatelessWidget {
                     maxLines: 2,
                     wrapWords: false,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 100),
+                    minFontSize: 0,
+                    style: TextStyle(fontSize: 100, color: Colors.white),
                   ))),
           Container(width: MediaQuery.of(context).size.width * .0825),
         ]));
