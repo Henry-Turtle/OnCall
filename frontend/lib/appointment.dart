@@ -16,7 +16,6 @@ class Appointment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      height: MediaQuery.of(context).size.height * .2,
       decoration: BoxDecoration(
           color: MyColors.lightGrey,
           borderRadius: const BorderRadius.all(Radius.circular(7.0)),

@@ -90,7 +90,49 @@ class BottomPopup extends StatelessWidget {
                     ]));
               }
             },
-          ))
+          )),
+          TextButton(
+            onPressed: () => print(""),
+            child: Column(children: [
+              Container(
+                  height: 60,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(7),
+                  child: Center(
+                    child: Text("Add Family Member",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 25, color: Colors.white)),
+                  ))
+            ]),
+          ),
+          TextButton(
+            onPressed: () => print(""),
+            child: Column(children: [
+              Container(
+                  height: 60,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(7),
+                  child: Center(
+                    child: Text("New Practice",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 25, color: Colors.white)),
+                  ))
+            ]),
+          ),
+          TextButton(
+            onPressed: () => print(""),
+            child: Column(children: [
+              Container(
+                  height: 60,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(7),
+                  child: Center(
+                    child: Text("Sign Out",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 25, color: Colors.red)),
+                  ))
+            ]),
+          )
         ],
       ),
     );

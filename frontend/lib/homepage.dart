@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "OnCall",
+        theme: ThemeData(fontFamily: 'Inter'),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: Column(

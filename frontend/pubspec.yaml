@@ -91,3 +91,12 @@ flutter:
   assets:
     - Logo.png
     - ToothIcon.png
+  fonts: 
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-Regular.otf
+        - asset: fonts/Inter-Bold.otf
+          weight: 700
+        - asset: fonts/Inter-Italic.otf
+          style: italic
+
