@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'colors.dart';
+import '../colors.dart';
 
 class Appointment extends StatelessWidget {
   final String date;
@@ -30,10 +30,16 @@ class Appointment extends StatelessWidget {
               Container(width: 20),
               Column(
                 children: [
-                  AutoSizeText(
-                    "$date\n$doctor\n$reason\n$patient\n$location",
-                    minFontSize: 0,
-                  )
+                  SizedBox(
+                    width: 200,
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        "$date\n$doctor\n$reason\n$patient\n$location",
+                        style: TextStyle(fontSize: 100),
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],
@@ -48,18 +54,19 @@ class Appointment extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: (() => print("")),
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.all(5.0),
-                      onPrimary: Colors.white,
-                      primary: MyColors.blue,
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.only(
+                          top: 5, bottom: 5, left: 10, right: 10),
+                      backgroundColor: MyColors.darkBlue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0),
                       ),
                     ),
-                    child: AutoSizeText(
-                      "Reschedule",
-                      maxLines: 1,
-                      minFontSize: 0,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    child: FittedBox(
+                      child: Text(
+                        "Reschedule",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     )),
               ),
               const Spacer(),
@@ -69,18 +76,19 @@ class Appointment extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: (() => print("")),
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.all(10.0),
-                      onPrimary: Colors.white,
-                      primary: MyColors.blue,
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.only(
+                          top: 5, bottom: 5, left: 10, right: 10),
+                      backgroundColor: MyColors.darkBlue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0),
                       ),
                     ),
-                    child: const AutoSizeText(
-                      "Cancel",
-                      maxLines: 1,
-                      minFontSize: 0,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    child: FittedBox(
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     )),
               ),
               Spacer()
