@@ -171,7 +171,7 @@ class _MessagePageState extends State<MessagePage> {
           //
           //
 
-          const HomeBottomBar()
+          HomeBottomBar(1)
         ],
       ),
     );

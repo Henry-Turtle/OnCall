@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
           Container(height: 4),
         ],
       ),
-      bottomNavigationBar: HomeBottomBar(),
+      bottomNavigationBar: HomeBottomBar(2),
     );
   }
 }
