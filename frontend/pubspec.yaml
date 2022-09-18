@@ -37,6 +37,7 @@ dependencies:
   auto_size_text: ^3.0.0
   grouped_list: ^5.1.2
   intl: ^0.17.0
+  flutter_svg: ^1.1.5
 
 dev_dependencies:
   flutter_test:
@@ -94,6 +95,11 @@ flutter:
     - assets/
     - assets/icons/
     - assets/images/
+    - assets/icons/feather/dollar-sign.svg
+    - assets/icons/feather/message-circle.svg
+    - assets/icons/feather/user.svg
+    - assets/icons/feather/home.svg
+    - assets/icons/feather/clock.svg
   fonts: 
     - family: Inter
       fonts:
