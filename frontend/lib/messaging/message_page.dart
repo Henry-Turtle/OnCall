@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/homepage/home_bottom_bar.dart';
+import 'package:frontend/home_bottom_bar.dart';
 import 'package:frontend/homepage/home_top_bar.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:frontend/colors.dart';
 import 'package:intl/intl.dart';
+
+//TODO:
+//BETTER TEXT INPUT OVERFLOW SYSTEM
 
 class MessagePage extends StatefulWidget {
   MessagePage({super.key});
@@ -69,17 +72,21 @@ class _MessagePageState extends State<MessagePage> {
                         alignment: message.sentByMe
                             ? Alignment.centerRight
                             : Alignment.centerLeft,
-                        child: Card(
-                            elevation: 8,
-                            color: message.sentByMe
-                                ? const Color(0xFF08cc46)
-                                : MyColors.messageFill,
-                            child: Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Text(
-                                  message.text,
-                                  style: const TextStyle(color: Colors.white),
-                                ))),
+                        child: Container(
+                          constraints: BoxConstraints(
+                              maxWidth: MediaQuery.of(context).size.width * .7),
+                          child: Card(
+                              elevation: 8,
+                              color: message.sentByMe
+                                  ? const Color(0xFF08cc46)
+                                  : MyColors.messageFill,
+                              child: Padding(
+                                  padding: const EdgeInsets.all(12),
+                                  child: Text(
+                                    message.text,
+                                    style: const TextStyle(color: Colors.white),
+                                  ))),
+                        ),
                       ))),
           //
           //
@@ -128,7 +135,7 @@ class _MessagePageState extends State<MessagePage> {
                         cursorColor: Colors.black,
                         decoration: const InputDecoration(
                             border: InputBorder.none,
-                            hintText: "Type Here",
+                            hintText: "Type Messages",
                             contentPadding: EdgeInsets.all(10)),
                         onSubmitted: (text) {
                           if (text != "") {

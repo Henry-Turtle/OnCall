@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       title: "OnCall",
       theme: ThemeData(fontFamily: 'Inter'),
       debugShowCheckedModeBanner: false,
-      home: MessagePage(),
+      home: HomePage(),
     );
   }
 }

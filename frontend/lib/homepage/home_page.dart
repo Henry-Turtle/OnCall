@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'home_top_bar.dart';
-import 'home_bottom_bar.dart';
+import '../home_bottom_bar.dart';
 import 'home_buttons.dart';
 import 'appointment.dart';
 
@@ -29,9 +29,9 @@ class HomePage extends StatelessWidget {
           Spacer(),
           Padding(padding: EdgeInsets.only(bottom: 16.0), child: HomeButtons()),
           Container(height: 4),
+          HomeBottomBar(2),
         ],
       ),
-      bottomNavigationBar: HomeBottomBar(2),
     );
   }
 }

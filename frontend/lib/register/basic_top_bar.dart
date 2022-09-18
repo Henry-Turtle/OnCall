@@ -17,7 +17,7 @@ class BasicTopBar extends StatelessWidget {
           const Spacer(),
           Image(
             image: const AssetImage(
-              'basictopbar.png',
+              'assets/images/basictopbar.jpg',
             ),
             height: MediaQuery.of(context).size.width * .1,
           ),

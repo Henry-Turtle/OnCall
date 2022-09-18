@@ -94,7 +94,9 @@ flutter:
   assets:
     - assets/
     - assets/icons/
-    - assets/images/
+    - assets/images/basictopbar.jpg
+    - assets/images/Logo.jpg
+    - assets/images/ToothIcon.jpg
     - assets/icons/feather/dollar-sign.svg
     - assets/icons/feather/message-circle.svg
     - assets/icons/feather/user.svg
