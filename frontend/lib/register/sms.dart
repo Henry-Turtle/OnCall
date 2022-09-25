@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:frontend/colors.dart';
+import 'package:frontend/homepage/home_page.dart';
 import 'package:frontend/register/phone_number.dart';
 import 'package:frontend/register/signup_top_bar.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -21,7 +22,7 @@ class SMS extends StatelessWidget {
           ))),
       //
       //
-      Container(height: 20),
+      Container(height: 40),
       //
       //
       Container(
@@ -48,14 +49,41 @@ class SMS extends StatelessWidget {
               shape: PinCodeFieldShape.box,
               inactiveColor: MyColors.harshInputBorder,
               activeColor: MyColors.harshInputBorder,
-              fieldHeight: 70,
+              fieldHeight: 50,
               borderWidth: 2,
               fieldWidth: MediaQuery.of(context).size.width * .1),
           onChanged: (value) => print(""),
+          onCompleted: (value) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              )),
         ),
-      )
+      ),
       //
       //
+      Container(height: 50),
+      //
+      //
+      Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * .9,
+          height: 60,
+          color: MyColors.lightBlue,
+          child: TextButton(
+            child: Text(
+              "Resend Code",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {
+              print("");
+            },
+          ),
+        ),
+      ),
     ]));
   }
 }

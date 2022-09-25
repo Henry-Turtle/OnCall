@@ -5,6 +5,7 @@ import 'package:frontend/register/sms.dart';
 import 'homepage/home_page.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
+import 'tester.dart';
 
 void main() {
   runApp(App());
@@ -15,7 +16,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false, home: SMS("617-999-5888"));
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Tester());
   }
 }

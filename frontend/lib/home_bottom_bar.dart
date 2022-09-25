@@ -81,10 +81,11 @@ class BottomButton extends StatelessWidget {
               ),
               Container(
                 height: 35,
-                child: FittedBox(
+                child: Container(
                   child: SvgPicture.asset(
                     buttonIcon,
                     color: selected ? Colors.black : Color(0xFFC3C3C7),
+                    width: MediaQuery.of(context).size.width * .10,
                   ),
                 ),
               ),
