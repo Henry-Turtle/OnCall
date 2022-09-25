@@ -45,7 +45,6 @@ class _HomeTopBarState extends State<HomeTopBar> {
   void initState() {
     selectedName = widget.name;
     displayPatients = sortPatients(patients, selectedName);
-    print(displayPatients);
     super.initState();
   }
 

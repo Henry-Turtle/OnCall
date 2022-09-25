@@ -20,10 +20,10 @@ class HomePage extends StatelessWidget {
           HomeTopBar("George White"),
           Padding(
               padding: const EdgeInsets.all(16),
-              child: Appointment("Feb 12 2006", "Dr. Udall",
-                  "Pancreatic Cancer", "Niccolo the Foolish", "The Moon")),
+              child: Appointment("Feb 12 2006", "Dr. Udall", "Urethral Cancer",
+                  "Nick the Foolish", "The Moon")),
           Image(
-            image: AssetImage('assets/images/Logo.jpg'),
+            image: AssetImage('assets/images/blurry_logo.jpg'),
             height: 100,
           ),
           Spacer(),

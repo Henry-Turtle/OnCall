@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:frontend/messaging/message_page.dart';
 import 'homepage/home_page.dart';
-import 'register/register_page.dart';
 
 //TODO:
 //REMOVE PAINT EFFECTS FROM BUTTONS
@@ -80,10 +79,14 @@ class BottomButton extends StatelessWidget {
               Spacer(
                 flex: 2,
               ),
-              SvgPicture.asset(
-                buttonIcon,
-                color: selected ? Colors.black : Color(0xFFC3C3C7),
+              Container(
                 height: 35,
+                child: FittedBox(
+                  child: SvgPicture.asset(
+                    buttonIcon,
+                    color: selected ? Colors.black : Color(0xFFC3C3C7),
+                  ),
+                ),
               ),
               Spacer(
                 flex: 1,

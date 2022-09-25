@@ -47,7 +47,7 @@ class Appointment extends StatelessWidget {
           Container(height: 20),
           Row(
             children: [
-              Spacer(),
+              Container(width: 15),
               SizedBox(
                 height: 30,
                 width: MediaQuery.of(context).size.width * .3,
@@ -57,7 +57,7 @@ class Appointment extends StatelessWidget {
                       foregroundColor: Colors.white,
                       padding: EdgeInsets.only(
                           top: 5, bottom: 5, left: 10, right: 10),
-                      backgroundColor: MyColors.darkBlue,
+                      backgroundColor: MyColors.appointmentField,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0),
                       ),
@@ -79,7 +79,7 @@ class Appointment extends StatelessWidget {
                       foregroundColor: Colors.white,
                       padding: EdgeInsets.only(
                           top: 5, bottom: 5, left: 10, right: 10),
-                      backgroundColor: MyColors.darkBlue,
+                      backgroundColor: MyColors.appointmentField,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0),
                       ),
@@ -91,7 +91,7 @@ class Appointment extends StatelessWidget {
                       ),
                     )),
               ),
-              Spacer()
+              Container(width: 15),
             ],
           )
         ],
