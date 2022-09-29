@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SignupTopBar extends StatelessWidget {
-  final callback;
+  final goto;
 
-  SignupTopBar(this.callback);
+  SignupTopBar(this.goto);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class SignupTopBar extends StatelessWidget {
           child: IconButton(
             icon: Icon(Icons.keyboard_arrow_left_sharp,
                 color: Colors.white, size: 45),
-            onPressed: callback,
+            onPressed: goto,
           ),
         ),
         Padding(

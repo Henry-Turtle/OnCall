@@ -35,17 +35,13 @@ class App extends StatelessWidget {
           initialData: false,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             final hasConnection = snapshot.hasData;
+
             if (hasConnection) {
-              print("DONE!");
               return SplashScreen();
             }
 
-            return Container(
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-                  "Server is offline",
-                  style: TextStyle(fontSize: 20),
-                ));
+            // ignore: sized_box_for_whitespace
+            return SplashScreen();
           },
         ));
   }

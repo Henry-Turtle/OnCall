@@ -9,8 +9,16 @@ import '../colors.dart';
 //TODO: Make it so the inputbox automatically adds and removes hyphens as number is typed
 //TODO: Remove paint effect from "I already have an account"
 
-class PhoneNumber extends StatelessWidget {
+class PhoneNumber extends StatefulWidget {
+  @override
+  State<PhoneNumber> createState() => _PhoneNumberState();
+}
+
+class _PhoneNumberState extends State<PhoneNumber> {
   final phoneNumber = TextEditingController();
+
+  final focus = FocusNode();
+  var text = "";
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +26,25 @@ class PhoneNumber extends StatelessWidget {
       body: Container(
         color: MyColors.background,
         child: Column(children: [
-          SignupTopBar(() => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => SplashScreen(),
-              ))),
+          SignupTopBar(
+            () => Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      SplashScreen(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    const begin = Offset(-1.0, 0.0);
+                    const end = Offset.zero;
+                    final tween = Tween(begin: begin, end: end);
+                    final offsetAnimation = animation.drive(tween);
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                )),
+          ),
           Container(height: 50),
           SizedBox(
             //Enter phone number caption
@@ -46,18 +68,50 @@ class PhoneNumber extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(left: 10, right: 10),
-                child: TextField(
-                  controller: phoneNumber,
-                  style: TextStyle(fontSize: 25),
-                  cursorColor: Colors.black,
-                  cursorHeight: 30,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(RegExp("[0-9-]"))
-                  ],
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    fillColor: Colors.white,
+                child: RawKeyboardListener(
+                  focusNode: focus,
+                  onKey: (event) {
+                    if (event is RawKeyDownEvent) {
+                      return;
+                    }
+                    print(text);
+                    var value = phoneNumber.text;
+
+                    if (value.length == 3 || value.length == 7) {
+                      if (text.length == 4 || text.length == 8) {
+                        phoneNumber.value = TextEditingValue(
+                          text: value.substring(0, value.length - 1),
+                          selection: TextSelection.fromPosition(
+                            TextPosition(offset: value.length - 1),
+                          ),
+                        );
+                        text = value.substring(0, value.length);
+                        return;
+                      }
+
+                      phoneNumber.value = TextEditingValue(
+                        text: phoneNumber.text + "-",
+                        selection: TextSelection.fromPosition(
+                          TextPosition(offset: phoneNumber.text.length + 1),
+                        ),
+                      );
+                      text = phoneNumber.text;
+                    }
+                    text = phoneNumber.text;
+                  },
+                  child: TextField(
+                    controller: phoneNumber,
+                    style: TextStyle(fontSize: 25),
+                    cursorColor: Colors.black,
+                    cursorHeight: 30,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.allow(RegExp("[0-9-]"))
+                    ],
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      fillColor: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -87,8 +141,22 @@ class PhoneNumber extends StatelessWidget {
                   if (phoneNumber.text.length == 12) {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => new SMS(phoneNumber.text),
+                        PageRouteBuilder(
+                          transitionDuration: Duration(milliseconds: 200),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  SMS(phoneNumber.text),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            const begin = Offset(1.0, 0.0);
+                            const end = Offset.zero;
+                            final tween = Tween(begin: begin, end: end);
+                            final offsetAnimation = animation.drive(tween);
+                            return SlideTransition(
+                              position: offsetAnimation,
+                              child: child,
+                            );
+                          },
                         ));
                   }
                 },

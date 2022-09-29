@@ -10,7 +10,7 @@ import 'homepage/home_page.dart';
 
 class HomeBottomBar extends StatelessWidget {
   final selected;
-  HomeBottomBar(this.selected);
+  const HomeBottomBar(this.selected);
 
   @override
   Widget build(BuildContext context) {
@@ -26,25 +26,57 @@ class HomeBottomBar extends StatelessWidget {
                 BottomButton("assets/icons/feather/dollar-sign.svg", "Billing",
                     0 == selected, () => print("")),
                 Spacer(),
-                BottomButton(
-                    "assets/icons/feather/message-circle.svg",
-                    "Messages",
-                    1 == selected,
-                    () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MessagePage(),
-                        ))),
+                BottomButton("assets/icons/feather/message-circle.svg",
+                    "Messages", 1 == selected, () {
+                  var offset =
+                      (selected < 1) ? Offset(1.0, 0.0) : Offset(-1.0, 0.0);
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 200),
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            MessagePage(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          var begin = offset;
+                          const end = Offset.zero;
+                          final tween = Tween(begin: begin, end: end);
+                          final offsetAnimation = animation.drive(tween);
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ));
+                }),
                 Spacer(),
                 BottomButton(
                   "assets/icons/feather/home.svg",
                   "Home",
                   2 == selected,
-                  () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      )),
+                  () {
+                    var offset =
+                        (selected < 2) ? Offset(1.0, 0.0) : Offset(-1.0, 0.0);
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          transitionDuration: Duration(milliseconds: 200),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  HomePage(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            var begin = offset;
+                            const end = Offset.zero;
+                            final tween = Tween(begin: begin, end: end);
+                            final offsetAnimation = animation.drive(tween);
+                            return SlideTransition(
+                              position: offsetAnimation,
+                              child: child,
+                            );
+                          },
+                        ));
+                  },
                 ),
                 Spacer(),
                 BottomButton("assets/icons/feather/clock.svg", "Appointments",
@@ -73,7 +105,9 @@ class BottomButton extends StatelessWidget {
     return Container(
       height: 80,
       child: TextButton(
-          onPressed: callback,
+          onPressed: selected
+              ? () => print("")
+              : callback, //This ternary shouldn't work like this and the fact that it does terrifies me
           child: Column(
             children: [
               Spacer(
