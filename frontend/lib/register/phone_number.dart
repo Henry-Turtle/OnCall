@@ -31,7 +31,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) =>
-                      SplashScreen(),
+                      const SplashScreen(),
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) {
                     const begin = Offset(-1.0, 0.0);
@@ -67,14 +67,14 @@ class _PhoneNumberState extends State<PhoneNumber> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: RawKeyboardListener(
                   focusNode: focus,
                   onKey: (event) {
                     if (event is RawKeyDownEvent) {
                       return;
                     }
-                    print(text);
+
                     var value = phoneNumber.text;
 
                     if (value.length == 3 || value.length == 7) {
@@ -100,18 +100,19 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     text = phoneNumber.text;
                   },
                   child: TextField(
+                    maxLength: 12,
                     controller: phoneNumber,
-                    style: TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 25),
                     cursorColor: Colors.black,
                     cursorHeight: 30,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(RegExp("[0-9-]"))
                     ],
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      fillColor: Colors.white,
-                    ),
+                    decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        fillColor: Colors.white,
+                        counterText: ""),
                   ),
                 ),
               ),
@@ -128,9 +129,16 @@ class _PhoneNumberState extends State<PhoneNumber> {
             child: Container(
               width: MediaQuery.of(context).size.width * .9,
               height: 60,
-              color: MyColors.lightBlue,
+              decoration:
+                  const BoxDecoration(color: MyColors.lightBlue, boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(0, 0, 0, .3),
+                  offset: Offset(0, 3),
+                  blurRadius: 2,
+                )
+              ]),
               child: TextButton(
-                child: Text(
+                child: const Text(
                   "Sign Up",
                   style: TextStyle(
                       color: Colors.white,
@@ -142,7 +150,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 200),
+                          transitionDuration: const Duration(milliseconds: 200),
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
                                   SMS(phoneNumber.text),
@@ -170,7 +178,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
           //
           Center(
             child: TextButton(
-                child: Text(
+                child: const Text(
                   "I already have an account",
                   style: TextStyle(
                       decoration: TextDecoration.underline,

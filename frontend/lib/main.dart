@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/messaging/message_page.dart';
+import 'package:frontend/register/information_form.dart';
 import 'package:frontend/register/splash_screen.dart';
 import 'homepage/home_page.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -11,47 +12,36 @@ void main() {
 
 class App extends StatelessWidget {
   App({super.key});
-  var messages = [];
-  var ws = WebSocketChannel.connect(Uri.parse("ws://oncall.dentist:2048"));
 
   @override
   Widget build(BuildContext context) {
-/*     print("Running started");
-    ws.stream.listen(
-      (event) {
-        print(event);
-      },
-      onError: (error) => print(error),
-      onDone: () => print("done"),
-    ); */
-    ws.sink.add("{\"aim\": \"connect\", \"os\": \"web\", \"version\": \"01\"}");
-
     return MaterialApp(
-        title: "OnCall",
-        theme: ThemeData(fontFamily: 'Inter'),
-        debugShowCheckedModeBanner: false,
-        home: StreamBuilder(
-          stream: ws.stream,
-          initialData: false,
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            final hasConnection = snapshot.hasData;
-
-            if (hasConnection) {
-              return SplashScreen();
-            }
-
-            // ignore: sized_box_for_whitespace
-            return SplashScreen();
-          },
-        ));
+      title: "OnCall",
+      theme: ThemeData(fontFamily: 'Inter'),
+      debugShowCheckedModeBanner: false,
+      home: InteractiveViewer(
+          panEnabled: false, // Set it to false to prevent panning.
+          minScale: .1,
+          maxScale: 100,
+          child: SplashScreen()),
+    );
   }
 }
 
-class Test extends StatelessWidget {
-  const Test({super.key});
+class two extends StatelessWidget {
+  const two({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Text("Hello World"));
+    return MaterialApp(
+      title: "OnCall",
+      theme: ThemeData(fontFamily: 'Inter'),
+      debugShowCheckedModeBanner: false,
+      home: InteractiveViewer(
+          panEnabled: true, // Set it to false to prevent panning.
+          minScale: 0.5,
+          maxScale: 4,
+          child: SplashScreen()),
+    );
   }
 }

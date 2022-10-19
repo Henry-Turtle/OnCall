@@ -21,6 +21,7 @@ class MyColors extends StatelessWidget {
   static const alreadyHaveAccount = Color(0xFF004387);
   static const darkInput = Color(0xFF092248);
   static const lightInput = Color(0xFF003265);
+  static const informationInputBorder = Color(0xFFC3C3C7);
 
   @override
   Widget build(BuildContext context) {

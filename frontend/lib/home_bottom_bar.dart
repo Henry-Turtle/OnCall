@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/parser.dart';
 import 'package:frontend/messaging/message_page.dart';
 import 'homepage/home_page.dart';
 
@@ -105,22 +106,17 @@ class BottomButton extends StatelessWidget {
     return Container(
       height: 80,
       child: TextButton(
-          onPressed: selected
-              ? () => print("")
-              : callback, //This ternary shouldn't work like this and the fact that it does terrifies me
+          onPressed: selected ? () => print("") : callback,
           child: Column(
             children: [
               Spacer(
                 flex: 2,
               ),
               Container(
-                height: 35,
-                child: Container(
-                  child: SvgPicture.asset(
-                    buttonIcon,
-                    color: selected ? Colors.black : Color(0xFFC3C3C7),
-                    width: MediaQuery.of(context).size.width * .10,
-                  ),
+                child: SvgPicture.asset(
+                  buttonIcon,
+                  color: selected ? Colors.black : Color(0xFFC3C3C7),
+                  height: MediaQuery.of(context).size.height * .05,
                 ),
               ),
               Spacer(

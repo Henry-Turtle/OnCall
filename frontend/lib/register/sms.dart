@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:frontend/colors.dart';
 import 'package:frontend/homepage/home_page.dart';
+import 'package:frontend/register/information_form.dart';
 import 'package:frontend/register/phone_number.dart';
 import 'package:frontend/register/signup_top_bar.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -30,7 +30,7 @@ class SMS extends StatelessWidget {
         child: Text(
           "Type the security code we just texted to you at " + phoneNumber,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 25, color: MyColors.darkInput),
+          style: const TextStyle(fontSize: 25, color: MyColors.darkInput),
         ),
       ),
       //
@@ -57,7 +57,7 @@ class SMS extends StatelessWidget {
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) =>
-                    HomePage(),
+                    const InformationForm(),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
                   const begin = Offset(1.0, 0.0);
@@ -81,9 +81,16 @@ class SMS extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width * .9,
           height: 60,
-          color: MyColors.lightBlue,
+          decoration:
+              const BoxDecoration(color: MyColors.lightBlue, boxShadow: [
+            BoxShadow(
+              color: Color.fromRGBO(0, 0, 0, .3),
+              offset: Offset(0, 3),
+              blurRadius: 2,
+            )
+          ]),
           child: TextButton(
-            child: Text(
+            child: const Text(
               "Resend Code",
               style: TextStyle(
                   color: Colors.white,
