@@ -1,16 +1,16 @@
-# frontend
+# Oncall Dentist prototype
 
-A new Flutter project.
+This is a protoype application I build for a startup named OnCall Dentist, a company dedicated to providing after hours service for dental offices. In addition to kickstarting the project, it convinced several people to join the team, including an investor and a dental consultant. The demo includes an account registration flow, a home page, and a messageing scaffold.
 
-## Getting Started
+## Technology
 
-This project is a starting point for a Flutter application.
+The company initially wanted a web and mobile app, and since the team was very small, we chose Flutter to build both at the same time. My experience with flutter was quite mixed; on one hand, it was easy and intuitive to pick up, and building to all platforms was super nice. On the other hand, I thought the debugging experience was terrible, with vague and cryptic error messages. While I did really enjoy working with Flutter, I don't think it would be my first choice for new projects.
 
-A few resources to get you started if this is your first Flutter project:
+## Photo Gallery
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+|      |     |
+| ---  | ---  |
+| <img src = "./assets/images/readme/splash.png">| <img src = "./assets/images/readme/phone_number.png"> |
+|<img src = "./assets/images/readme/sms.png"> | <img src = "./assets/images/readme/information.png"> |
+|<img src = "./assets/images/readme/home.png"> | <img src = "./assets/images/readme/change.png"> |
+|<img src = "./assets/images/readme/message.png">| |
