@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:frontend/register/signup_top_bar.dart';
-import 'package:frontend/register/sms.dart';
-import 'package:frontend/register/splash_screen.dart';
+import 'package:OnCall/register/signup_top_bar.dart';
+import 'package:OnCall/register/sms.dart';
+import 'package:OnCall/register/splash_screen.dart';
 
 import '../colors.dart';
 

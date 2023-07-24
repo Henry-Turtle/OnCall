@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:frontend/home_bottom_bar.dart';
-import 'package:frontend/homepage/home_top_bar.dart';
-import 'package:frontend/homepage/home_buttons.dart';
-import 'package:frontend/homepage/appointment.dart';
+import 'package:OnCall/home_bottom_bar.dart';
+import 'package:OnCall/homepage/home_top_bar.dart';
+import 'package:OnCall/homepage/home_buttons.dart';
+import 'package:OnCall/homepage/appointment.dart';
 
 //TODO: Make OnCall logo its own layer, so other elements can overlap with it
 

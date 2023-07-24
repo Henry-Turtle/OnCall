@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/home_bottom_bar.dart';
-import 'package:frontend/homepage/home_top_bar.dart';
+import 'package:OnCall/home_bottom_bar.dart';
+import 'package:OnCall/homepage/home_top_bar.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:frontend/colors.dart';
+import 'package:OnCall/colors.dart';
 import 'package:intl/intl.dart';
 
 //TODO:

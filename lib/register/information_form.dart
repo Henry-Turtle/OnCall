@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:frontend/colors.dart';
-import 'package:frontend/homepage/home_page.dart';
-import 'package:frontend/register/signup_top_bar.dart';
+import 'package:OnCall/colors.dart';
+import 'package:OnCall/homepage/home_page.dart';
+import 'package:OnCall/register/signup_top_bar.dart';
 import 'phone_number.dart';
 
 //TODO: Change the TextButton on "sex" property so that it no longer elevates with shadow when pressed

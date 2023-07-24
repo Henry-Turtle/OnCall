@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/parser.dart';
-import 'package:frontend/messaging/message_page.dart';
+import 'package:OnCall/messaging/message_page.dart';
 import 'homepage/home_page.dart';
 
 //TODO:

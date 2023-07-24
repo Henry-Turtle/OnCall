@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/colors.dart';
-import 'package:frontend/homepage/home_page.dart';
-import 'package:frontend/register/information_form.dart';
-import 'package:frontend/register/phone_number.dart';
-import 'package:frontend/register/signup_top_bar.dart';
+import 'package:OnCall/colors.dart';
+import 'package:OnCall/homepage/home_page.dart';
+import 'package:OnCall/register/information_form.dart';
+import 'package:OnCall/register/phone_number.dart';
+import 'package:OnCall/register/signup_top_bar.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class SMS extends StatelessWidget {
@@ -52,7 +52,7 @@ class SMS extends StatelessWidget {
               fieldHeight: 50,
               borderWidth: 2,
               fieldWidth: MediaQuery.of(context).size.width * .1),
-          onChanged: (value) => print(""),
+          onChanged: (value) => {},
           onCompleted: (value) => Navigator.push(
               context,
               PageRouteBuilder(

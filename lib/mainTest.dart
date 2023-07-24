@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/messaging/message_page.dart';
-import 'package:frontend/register/splash_screen.dart';
+import 'package:OnCall/messaging/message_page.dart';
+import 'package:OnCall/register/splash_screen.dart';
 import 'homepage/home_page.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
